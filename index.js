@@ -20,6 +20,7 @@ app.get("/allData", (req, res) => {
   const RMC3 = { material: 32.5, labor: 39.0 };
   const RMC3_1_2 = { material: 41.0, labor: 44.5 };
   const RMC4 = { material: 44.0, labor: 49.0 };
+
   const EMT1_2 = { material: 1.19, labor: 5.75 };
   const EMT3_4 = { material: 1.85, labor: 7.5 };
   const EMT1 = { material: 3.13, labor: 8.5 };
@@ -30,6 +31,30 @@ app.get("/allData", (req, res) => {
   const EMT3 = { material: 13.1, labor: 19.6 };
   const EMT3_1_2 = { material: 16.85, labor: 21.5 };
   const EMT4 = { material: 17.75, labor: 24.5 };
+
+  const THWN14 = { material: 12.9, labor: 75.5 };
+  const THWN12 = { material: 52.0, labor: 89.0 };
+  const THWN10 = { material: 29.5, labor: 98.0 };
+
+  const THWN8 = { material: 60.0, labor: 123.0 };
+  const THWN6 = { material: 93.5, labor: 151.0 };
+  const THWN4 = { material: 147.0, labor: 185.0 };
+
+  const THW3 = { material: 163.0, labor: 196.0 };
+  const THW2 = { material: 216.0, labor: 218.0 };
+  const THW1 = { material: 238.0, labor: 245.0 };
+
+  const THW1_0 = { material: 287.0, labor: 296.0 };
+  const THW2_0 = { material: 395.0, labor: 340.0 };
+  const THW3_0 = { material: 475.0, labor: 390.0 };
+
+  const THW4_0 = { material: 535.0, labor: 445.0 };
+  const THW250 = { material: 690.0, labor: 490.0 };
+  const THW300 = { material: 900.0, labor: 515.0 };
+
+  const THW350 = { material: 1050.0, labor: 545.0 };
+  const THW400 = { material: 1175.0, labor: 570.0 };
+  const THW500 = { material: 1475.0, labor: 610.0 };
 
   res.json({
     RMC1_2,
