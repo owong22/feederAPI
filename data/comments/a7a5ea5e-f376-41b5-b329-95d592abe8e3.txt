@@ -1,1 +1,10 @@
-This is a comment
+{ material: 1.19, labor: 5.75 };
+{ material: 1.85, labor: 7.5 };
+{ material: 3.13, labor: 8.5 };
+{ material: 5.15, labor: 9.8 };
+{ material: 6.45, labor: 10.9 };
+{ material: 7.9, labor: 12.25 };
+{ material: 10.4, labor: 16.35 };
+{ material: 13.1, labor: 19.6 };
+{ material: 16.85, labor: 21.5 };
+{ material: 17.75, labor: 24.5 };
