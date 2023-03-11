@@ -56,7 +56,7 @@ app.get("/allData", (req, res) => {
   const THW400 = { material: 1175.0, labor: 570.0 };
   const THW500 = { material: 1475.0, labor: 610.0 };
 
-  res.json([
+  res.json({
     RMC1_2,
     RMC3_4,
     RMC1,
@@ -101,7 +101,7 @@ app.get("/allData", (req, res) => {
     THW350,
     THW400,
     THW500,
-  ]);
+  });
 });
 
 app.get("/comments/:id", async (req, res) => {
