@@ -56,7 +56,7 @@ app.get("/allData", (req, res) => {
   const THW400 = { material: 1175.0, labor: 570.0 };
   const THW500 = { material: 1475.0, labor: 610.0 };
 
-  res.json({
+  res.json([
     RMC1_2,
     RMC3_4,
     RMC1,
@@ -67,11 +67,45 @@ app.get("/allData", (req, res) => {
     RMC2_1_2,
     RMC3,
     RMC4,
-  });
+    EMT1_2,
+    EMT3_4,
+    EMT1,
+    EMT1_1_4,
+    EMT1_1_2,
+    EMT2,
+    EMT2_1_2,
+    EMT3,
+    EMT3_1_2,
+    EMT4,
+
+    THWN14,
+    THWN12,
+    THWN10,
+
+    THWN8,
+    THWN6,
+    THWN4,
+
+    THW3,
+    THW2,
+    THW1,
+
+    THW1_0,
+    THW2_0,
+    THW3_0,
+
+    THW4_0,
+    THW250,
+    THW300,
+
+    THW350,
+    THW400,
+    THW500,
+  ]);
 });
 
 app.get("/comments/:id", async (req, res) => {
-  const id = req.params.id;
+  id = req.params.id;
   let content;
   try {
     content = await fs.readFile(`data/comments/${id}.txt`, "utf-8");
