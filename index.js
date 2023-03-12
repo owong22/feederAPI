@@ -113,6 +113,7 @@ const EMTLabor4 = 24.5;
 // const THW350Material =
 // const THW400Material=
 // const THW500Material =
+// const THW600Material =
 const THWN14Material = 12.9;
 const THWN12Material = 52.0;
 const THWN10Material = 29.5;
@@ -131,6 +132,7 @@ const THW300Material = 900.0;
 const THW350Material = 1050.0;
 const THW400Material = 1175.0;
 const THW500Material = 1475.0;
+const THW600Material = 1800.0;
 
 // const THWN14Labor =
 // const THWN12Labor =
@@ -150,6 +152,7 @@ const THW500Material = 1475.0;
 // const THW350Labor =
 // const THW400Labor=
 // const THW500Labor =
+// const THW600Labor =
 const THWN14Labor = 75.5;
 const THWN12Labor = 89.0;
 const THWN10Labor = 98.0;
@@ -168,6 +171,7 @@ const THW300Labor = 515.0;
 const THW350Labor = 545.0;
 const THW400Labor = 570.0;
 const THW500Labor = 610.0;
+const THW600Labor = 650.0;
 
 app.get("/allData", (req, res) => {
   const NG30RMC = {
@@ -175,86 +179,437 @@ app.get("/allData", (req, res) => {
     conduitSize: '3/4"',
     materialConduit: RMCMaterial3_4,
     laborConduit: RMCLabor3_4,
-    Sets: 1,
-    Number: 4,
-    wireSize: "#10",
+    sets: 1,
+    number: 4,
+    hotSize: "#10",
     materialHot: THWN10Material,
     laborHot: THWN10Labor,
-    groundSize: "#10",
+    GNDSize: "#10",
     materialGND: THWN10Material,
     laborGND: THWN10Labor,
-    materialTotal:
-      1 * (RMCMaterial3_4 + (4 * THWN10Material) / 100 + THWN10Material / 100),
-    laborTotal: 1 * (RMCLabor3_4 + (4 * THWN10Labor) / 100 + THWN10Labor / 100),
   };
-  // const NG40RMC = { material: 7.0, labor: 15.05 };
-  // const NG50RMC = { material: 7.0, labor: 15.05 };
-  // const NG60RMC = { material: 10.25, labor: 16.35 };
-  // const NG70RMC = { material: 10.25, labor: 16.35 };
-  // const NG80RMC = { material: 11.7, labor: 17.8 };
-  // const NG90RMC = { material: 11.7, labor: 17.8 };
-  // const NG100RMC = { material: 14.75, labor: 21.5 };
-  // const NG125RMC = { material: 14.75, labor: 21.5 };
-  // const NG150RMC = { material: 14.75, labor: 21.5 };
-  // const NG175RMC = { material: 14.75, labor: 21.5 };
-  // const NG200RMC = { material: 29.0, labor: 28.0 };
-  // const NG225RMC = { material: 29.0, labor: 28.0 };
-  // const NG250RMC = { material: 32.5, labor: 39.0 };
-  // const NG300RMC = { material: 32.5, labor: 39.0 };
-  // const NG350RMC = { material: 44.0, labor: 49.0 };
-  // const NG400RMC = { material: 44.0, labor: 49.0 };
-  // const NG450RMC = { material: 29.0, labor: 28.0 };
-  // const NG500RMC = { material: 32.5, labor: 39.0 };
-  // const NG600RMC = { material: 32.5, labor: 39.0 };
-  // const NG700RMC = { material: 44.0, labor: 49.0 };
-  // const NG800RMC = { material: 32.5, labor: 39.0 };
-  // const NG1000RMC = { material: 41.0, labor: 44.5 };
-  // const NG1200RMC = { material: 32.5, labor: 39.0 };
-  // const NG1600RMC = { material: 41.0, labor: 44.5 };
-  // const NG2000RMC = { material: 44.0, labor: 49.0 };
-  // const NG2500RMC = { material: 44.0, labor: 49.0 };
-  // const NG3000RMC = { material: 44.0, labor: 49.0 };
-  // const NG4000RMC = { material: 44.0, labor: 49.0 };
+  const NG40RMC = {
+    AMPS: 40,
+    conduitSize: '1"',
+    materialConduit: RMCMaterial1,
+    laborConduit: RMCLabor1,
+    sets: 1,
+    number: 4,
+    hotSize: "#8",
+    materialHot: THWN8Material,
+    laborHot: THWN8Labor,
+    GNDSize: "#10",
+    materialGND: THWN10Material,
+    laborGND: THWN10Labor,
+  };
+  const NG50RMC = {
+    AMPS: 50,
+    conduitSize: '1"',
+    materialConduit: RMCMaterial1,
+    laborConduit: RMCLabor1,
+    sets: 1,
+    number: 4,
+    hotSize: "#6",
+    materialHot: THWN6Material,
+    laborHot: THWN10Labor,
+    GNDSize: "#10",
+    materialGND: THWN10Material,
+    laborGND: THWN10Labor,
+  };
+  const NG60RMC = {
+    AMPS: 60,
+    conduitSize: '1-1/4"',
+    materialConduit: RMCMaterial1_1_4,
+    laborConduit: RMCLabor1_1_4,
+    sets: 1,
+    number: 4,
+    hotSize: "#4",
+    materialHot: THWN4Material,
+    laborHot: THWN4Labor,
+    GNDSize: "#10",
+    materialGND: THWN10Material,
+    laborGND: THWN10Labor,
+  };
+  const NG70RMC = {
+    AMPS: 70,
+    conduitSize: '1-1/4"',
+    materialConduit: RMCMaterial1_1_4,
+    laborConduit: RMCLabor1_1_4,
+    sets: 1,
+    number: 4,
+    hotSize: "#4",
+    materialHot: THWN4Material,
+    laborHot: THWN4Labor,
+    GNDSize: "#8",
+    materialGND: THWN8Material,
+    laborGND: THWN8Labor,
+  };
+  const NG80RMC = {
+    AMPS: 80,
+    conduitSize: '1-1/2"',
+    materialConduit: RMCMaterial1_1_2,
+    laborConduit: RMCLabor1_1_2,
+    sets: 1,
+    number: 4,
+    hotSize: "#2",
+    materialHot: THW2Material,
+    laborHot: THW2Labor,
+    GNDSize: "#8",
+    materialGND: THWN8Material,
+    laborGND: THWN8Labor,
+  };
+  const NG90RMC = {
+    AMPS: 90,
+    conduitSize: '1-1/2"',
+    materialConduit: RMCMaterial1_1_2,
+    laborConduit: RMCLabor1_1_2,
+    sets: 1,
+    number: 4,
+    hotSize: "#2",
+    materialHot: THW2Material,
+    laborHot: THW2Labor,
+    GNDSize: "#8",
+    materialGND: THWN8Material,
+    laborGND: THWN8Labor,
+  };
+  const NG100RMC = {
+    AMPS: 100,
+    conduitSize: '2"',
+    materialConduit: RMCMaterial2,
+    laborConduit: RMCLabor2,
+    sets: 1,
+    number: 4,
+    hotSize: "#1",
+    materialHot: THW1Material,
+    laborHot: THW1Labor,
+    GNDSize: "#8",
+    materialGND: THWN8Material,
+    laborGND: THWN8Labor,
+  };
+  const NG125RMC = {
+    AMPS: 125,
+    conduitSize: '2"',
+    materialConduit: RMCMaterial2,
+    laborConduit: RMCLabor2,
+    sets: 1,
+    number: 4,
+    hotSize: "#1",
+    materialHot: THW1Material,
+    laborHot: THW1Labor,
+    GNDSize: "#6",
+    materialGND: THWN6Material,
+    laborGND: THWN6Labor,
+  };
+  const NG150RMC = {
+    AMPS: 150,
+    conduitSize: '2"',
+    materialConduit: RMCMaterial2,
+    laborConduit: RMCLabor2,
+    sets: 1,
+    number: 4,
+    hotSize: "1/0",
+    materialHot: THW1_0Material,
+    laborHot: THW1_0Labor,
+    GNDSize: "#6",
+    materialGND: THWN6Material,
+    laborGND: THWN6Labor,
+  };
+  const NG175RMC = {
+    AMPS: 175,
+    conduitSize: '2"',
+    materialConduit: RMCMaterial2,
+    laborConduit: RMCLabor2,
+    sets: 1,
+    number: 4,
+    hotSize: "2/0",
+    materialHot: THW2_0Material,
+    laborHot: THW2_0Labor,
+    GNDSize: "#6",
+    materialGND: THWN6Material,
+    laborGND: THWN6Labor,
+  };
+  const NG200RMC = {
+    AMPS: 200,
+    conduitSize: '2-1/2"',
+    materialConduit: RMCMaterial2_1_2,
+    laborConduit: RMCLabor2_1_2,
+    sets: 1,
+    number: 4,
+    hotSize: "3/0",
+    materialHot: THW3_0Material,
+    laborHot: THW3_0Labor,
+    GNDSize: "#6",
+    materialGND: THWN6Material,
+    laborGND: THWN6Labor,
+  };
+  const NG225RMC = {
+    AMPS: 225,
+    conduitSize: '2-1/2"',
+    materialConduit: RMCMaterial2_1_2,
+    laborConduit: RMCLabor2_1_2,
+    sets: 1,
+    number: 4,
+    hotSize: "4/0",
+    materialHot: THW4_0Material,
+    laborHot: THW4_0Labor,
+    GNDSize: "#4",
+    materialGND: THWN4Material,
+    laborGND: THWN4Labor,
+  };
+  const NG250RMC = {
+    AMPS: 250,
+    conduitSize: '3"',
+    materialConduit: RMCMaterial3,
+    laborConduit: RMCLabor3,
+    sets: 1,
+    number: 4,
+    hotSize: "250KCMIL",
+    materialHot: THW250Material,
+    laborHot: THW250Labor,
+    GNDSize: "#4",
+    materialGND: THWN4Material,
+    laborGND: THWN4Labor,
+  };
+  const NG300RMC = {
+    AMPS: 300,
+    conduitSize: '3"',
+    materialConduit: RMCMaterial3,
+    laborConduit: RMCLabor3,
+    sets: 1,
+    number: 4,
+    hotSize: "350KCMIL",
+    materialHot: THW350Material,
+    laborHot: THW350Labor,
+    GNDSize: "#4",
+    materialGND: THWN4Material,
+    laborGND: THWN4Labor,
+  };
+  const NG350RMC = {
+    AMPS: 350,
+    conduitSize: '4"',
+    materialConduit: RMCMaterial4,
+    laborConduit: RMCLabor4,
+    sets: 1,
+    number: 4,
+    hotSize: "500KCMIL",
+    materialHot: THW500Material,
+    laborHot: THW500Labor,
+    GNDSize: "#3",
+    materialGND: THW3Material,
+    laborGND: THW3Labor,
+  };
+  const NG400RMC = {
+    AMPS: 400,
+    conduitSize: '4"',
+    materialConduit: RMCMaterial4,
+    laborConduit: RMCLabor4,
+    sets: 1,
+    number: 4,
+    hotSize: "600KCMIL",
+    materialHot: THW600Material,
+    laborHot: THW600Labor,
+    GNDSize: "#3",
+    materialGND: THW3Material,
+    laborGND: THW3Labor,
+  };
+  const NG450RMC = {
+    AMPS: 450,
+    conduitSize: '2-1/2"',
+    materialConduit: RMCMaterial2_1_2,
+    laborConduit: RMCLabor2_1_2,
+    sets: 2,
+    number: 4,
+    hotSize: "4/0",
+    materialHot: THW4_0Material,
+    laborHot: THW4_0Labor,
+    GNDSize: "#2",
+    materialGND: THW2Material,
+    laborGND: THW2Labor,
+  };
+  const NG500RMC = {
+    AMPS: 500,
+    conduitSize: '3"',
+    materialConduit: RMCMaterial3,
+    laborConduit: RMCLabor3,
+    sets: 2,
+    number: 4,
+    hotSize: "250KCMIL",
+    materialHot: THW250Material,
+    laborHot: THW250Labor,
+    GNDSize: "#2",
+    materialGND: THW2Material,
+    laborGND: THW2Labor,
+  };
+  const NG600RMC = {
+    AMPS: 600,
+    conduitSize: '3"',
+    materialConduit: RMCMaterial3,
+    laborConduit: RMCLabor3,
+    sets: 2,
+    number: 4,
+    hotSize: "350KCMIL",
+    materialHot: THW350Material,
+    laborHot: THW350Labor,
+    GNDSize: "#1",
+    materialGND: THW1Material,
+    laborGND: THW1Labor,
+  };
+  const NG700RMC = {
+    AMPS: 700,
+    conduitSize: '4"',
+    materialConduit: RMCMaterial4,
+    laborConduit: RMCLabor4,
+    sets: 2,
+    number: 4,
+    hotSize: "500KCMIL",
+    materialHot: THW500Material,
+    laborHot: THW500Labor,
+    GNDSize: "1/0",
+    materialGND: THW1_0Material,
+    laborGND: THW1_0Labor,
+  };
+  const NG800RMC = {
+    AMPS: 800,
+    conduitSize: '3"',
+    materialConduit: RMCMaterial3,
+    laborConduit: RMCLabor3,
+    sets: 3,
+    number: 4,
+    hotSize: "300KCMIL",
+    materialHot: THW300Material,
+    laborHot: THW300Labor,
+    GNDSize: "1/0",
+    materialGND: THW1_0Material,
+    laborGND: THW1_0Labor,
+  };
+  const NG1000RMC = {
+    AMPS: 1000,
+    conduitSize: '3-1/2"',
+    materialConduit: RMCMaterial3_1_2,
+    laborConduit: RMCLabor3_1_2,
+    sets: 3,
+    number: 4,
+    hotSize: "400KCMIL",
+    materialHot: THW400Material,
+    laborHot: THW400Labor,
+    GNDSize: "2/0",
+    materialGND: THW2_0Material,
+    laborGND: THW2_0Labor,
+  };
+  const NG1200RMC = {
+    AMPS: 1200,
+    conduitSize: '3"',
+    materialConduit: RMCMaterial3,
+    laborConduit: RMCLabor3,
+    sets: 4,
+    number: 4,
+    hotSize: "350KCMIL",
+    materialHot: THW350Material,
+    laborHot: THW350Labor,
+    GNDSize: "3/0",
+    materialGND: THW3_0Material,
+    laborGND: THW3_0Labor,
+  };
+  const NG1600RMC = {
+    AMPS: 1600,
+    conduitSize: '3-1/2"',
+    materialConduit: RMCMaterial3_1_2,
+    laborConduit: RMCLabor3_1_2,
+    sets: 5,
+    number: 4,
+    hotSize: "400KCMIL",
+    materialHot: THW400Material,
+    laborHot: THW400Labor,
+    GNDSize: "4/0",
+    materialGND: THW4_0Material,
+    laborGND: THW4_0Labor,
+  };
+  const NG2000RMC = {
+    AMPS: 2000,
+    conduitSize: '4"',
+    materialConduit: RMCMaterial4,
+    laborConduit: RMCLabor4,
+    sets: 5,
+    number: 4,
+    hotSize: "600KCMIL",
+    materialHot: THW600Material,
+    laborHot: THW600Labor,
+    GNDSize: "250KCMIL",
+    materialGND: THW250Material,
+    laborGND: THW250Labor,
+  };
+  const NG2500RMC = {
+    AMPS: 2500,
+    conduitSize: '4"',
+    materialConduit: RMCMaterial4,
+    laborConduit: RMCLabor4,
+    sets: 6,
+    number: 4,
+    hotSize: "600KCMIL",
+    materialHot: THW600Material,
+    laborHot: THW600Labor,
+    GNDSize: "350KCMIL",
+    materialGND: THW350Material,
+    laborGND: THW350Labor,
+  };
+  const NG3000RMC = {
+    AMPS: 3000,
+    conduitSize: '4"',
+    materialConduit: RMCMaterial4,
+    laborConduit: RMCLabor4,
+    sets: 8,
+    number: 4,
+    hotSize: "600KCMIL",
+    materialHot: THW600Material,
+    laborHot: THW600Labor,
+    GNDSize: "400KCMIL",
+    materialGND: THW400Material,
+    laborGND: THW400Labor,
+  };
+  const NG4000RMC = {
+    AMPS: 4000,
+    conduitSize: '4"',
+    materialConduit: RMCMaterial4,
+    laborConduit: RMCLabor4,
+    sets: 10,
+    number: 4,
+    hotSize: "600KCMIL",
+    materialHot: THW600Material,
+    laborHot: THW600Labor,
+    GNDSize: "500KCMIL",
+    materialGND: THW500Material,
+    laborGND: THW500Labor,
+  };
 
   res.json([
     { NG30RMC },
-    // { NG50RMC },
-    // { NG60RMC },
-    // { RMC3_1_2 },
-    // { RMC1_1_4 },
-    // { RMC1_1_2 },
-    // { RMC2 },
-    // { RMC2_1_2 },
-    // { RMC3 },
-    // { RMC4 },
-    // { EMT1_2 },
-    // { EMT3_4 },
-    // { EMT1 },
-    // { EMT1_1_4 },
-    // { EMT1_1_2 },
-    // { EMT2 },
-    // { EMT2_1_2 },
-    // { EMT3 },
-    // { EMT3_1_2 },
-    // { EMT4 },
-    // { THWN14 },
-    // { THWN12 },
-    // { THWN10 },
-    // { THWN8 },
-    // { THWN6 },
-    // { THWN4 },
-    // { THW3 },
-    // { THW2 },
-    // { THW1 },
-    // { THW1_0 },
-    // { THW2_0 },
-    // { THW3_0 },
-    // { THW4_0 },
-    // { THW250 },
-    // { THW300 },
-    // { THW350 },
-    // { THW400 },
-    // { THW500 },
+    { NG50RMC },
+    { NG60RMC },
+    { NG70RMC },
+    { NG80RMC },
+    { NG90RMC },
+    { NG100RMC },
+    { NG125RMC },
+    { NG150RMC },
+    { NG175RMC },
+    { NG200RMC },
+    { NG225RMC },
+    { NG250RMC },
+    { NG300RMC },
+    { NG350RMC },
+    { NG400RMC },
+    { NG450RMC },
+    { NG500RMC },
+    { NG600RMC },
+    { NG700RMC },
+    { NG800RMC },
+    { NG1000RMC },
+    { NG1200RMC },
+    { NG1600RMC },
+    { NG2000RMC },
+    { NG2500RMC },
+    { NG3000RMC },
+    { NG4000RMC },
   ]);
 });
 // app.get("/allData", (req, res) => {
