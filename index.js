@@ -10,7 +10,6 @@ app.use(express.json());
 app.use(cors());
 
 // Values to be updated once cost works updates their prices
-
 // const RMCMaterial1_2=
 // const RMCMaterial3_4=
 // const RMCMaterial1=
@@ -799,6 +798,94 @@ app.get("/wires", (req, res) => {
     { THW400 },
     { THW500 },
   ]);
+});
+
+app.get("/NG30RMC", (req, res) => {
+  res.json([{ NG30RMC }]);
+});
+app.get("/NG40RMC", (req, res) => {
+  res.json([{ NG40RMC }]);
+});
+app.get("/NG50RMC", (req, res) => {
+  res.json([{ NG50RMC }]);
+});
+app.get("/NG60RMC", (req, res) => {
+  res.json([{ NG60RMC }]);
+});
+app.get("/NG70RMC", (req, res) => {
+  res.json([{ NG70RMC }]);
+});
+app.get("/NG80RMC", (req, res) => {
+  res.json([{ NG80RMC }]);
+});
+app.get("/NG90RMC", (req, res) => {
+  res.json([{ NG90RMC }]);
+});
+app.get("/NG100RMC", (req, res) => {
+  res.json([{ NG100RMC }]);
+});
+app.get("/NG125RMC", (req, res) => {
+  res.json([{ NG125RMC }]);
+});
+app.get("/NG150RMC", (req, res) => {
+  res.json([{ NG150RMC }]);
+});
+app.get("/NG175RMC", (req, res) => {
+  res.json([{ NG175RMC }]);
+});
+app.get("/NG200RMC", (req, res) => {
+  res.json([{ NG200RMC }]);
+});
+app.get("/NG225RMC", (req, res) => {
+  res.json([{ NG225RMC }]);
+});
+app.get("/NG250RMC", (req, res) => {
+  res.json([{ NG250RMC }]);
+});
+app.get("/NG300RMC", (req, res) => {
+  res.json([{ NG300RMC }]);
+});
+app.get("/NG350RMC", (req, res) => {
+  res.json([{ NG350RMC }]);
+});
+app.get("/NG400RMC", (req, res) => {
+  res.json([{ NG400RMC }]);
+});
+app.get("/NG450RMC", (req, res) => {
+  res.json([{ NG450RMC }]);
+});
+app.get("/NG500RMC", (req, res) => {
+  res.json([{ NG500RMC }]);
+});
+app.get("/NG600RMC", (req, res) => {
+  res.json([{ NG600RMC }]);
+});
+app.get("/NG700RMC", (req, res) => {
+  res.json([{ NG700RMC }]);
+});
+app.get("/NG800RMC", (req, res) => {
+  res.json([{ NG800RMC }]);
+});
+app.get("/NG1000RMC", (req, res) => {
+  res.json([{ NG1000RMC }]);
+});
+app.get("/NG1200RMC", (req, res) => {
+  res.json([{ NG1200RMC }]);
+});
+app.get("/NG1600RMC", (req, res) => {
+  res.json([{ NG1600RMC }]);
+});
+app.get("/NG2000RMC", (req, res) => {
+  res.json([{ NG2000RMC }]);
+});
+app.get("/NG2500RMC", (req, res) => {
+  res.json([{ NG2500RMC }]);
+});
+app.get("/NG3000RMC", (req, res) => {
+  res.json([{ NG3000RMC }]);
+});
+app.get("/NG4000RMC", (req, res) => {
+  res.json([{ NG4000RMC }]);
 });
 
 app.get("/comments/:id", async (req, res) => {
